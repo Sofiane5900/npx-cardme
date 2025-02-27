@@ -1,7 +1,7 @@
 {
   "name": "me",
   "version": "1.0.0",
-  "description": "",
+  "description": "A CLI tool for developers to create and share personalized terminal business cards.",
   "main": "index.js",
   "bin": {
     "name": "index.js"
