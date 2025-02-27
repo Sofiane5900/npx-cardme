@@ -12,5 +12,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "cfonts": "^3.3.0",
+    "chalk": "^5.4.1"
+  }
 }
