@@ -3,7 +3,7 @@ import inquirer from "inquirer";
 
 export async function askUserInfo() {
     const answers = await inquirer.prompt([
-        {type: "input", name: "name", message: "What is your full name/username ?"},
+        {type: "input", name: "name", message: "What is your full name or username ?"},
         {type: "input", name: "job", message: "What is your working field ?"},
         {type: "input", name: "github", message: "What is your GitHub profile URL ?"},
         {type: "input", name: "linkedin", message: "What is your Linkedin profile URL ?"},
