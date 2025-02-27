@@ -13,3 +13,8 @@ cfonts.say("npx me", {
     lineHeight: 1,
     space: true,
 });
+
+// width of terminal window, 80 by default
+const terminalWidth = process.stdout.columns || 80;
+console.log("━".repeat(terminalWidth));
+
