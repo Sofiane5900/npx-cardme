@@ -19,3 +19,10 @@ cfonts.say("npx me", {
 const terminalWidth = process.stdout.columns || 80;
 console.log("━".repeat(terminalWidth));
 
+
+async function Menu() {
+    const userInfo = await askUserInfo();
+    const card = generateCard(userInfo);
+    console.log(card);
+}
+Menu();
