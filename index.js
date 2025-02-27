@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // node shebang
 
-
+import {askUserInfo} from "./src/prompts.js";
+import {generateCard} from "./src/generator.js";
 import chalk from "chalk";
 import cfonts from "cfonts";
 
