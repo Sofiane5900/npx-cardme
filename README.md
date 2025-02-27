@@ -6,5 +6,5 @@
 Just share your dev profile with:
 
 ```sh
-Still in developement
+Coming Soon
 ```
