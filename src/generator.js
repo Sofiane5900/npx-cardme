@@ -6,8 +6,8 @@ export function generateCard({name,job,github,linkedin}) {
     ${chalk.bold(name)}
     ${chalk.green(job)}
     
-    ${chalk.blue("📂 GitHub:")} ${chalk.white(github)}
-    ${chalk.blue("🔗 LinkedIn:")} ${chalk.white(linkedin)}
+    ${chalk.blue("📂 GitHub:")} www.github.com/${chalk.white(github)}
+    ${chalk.blue("🔗 LinkedIn:")} www.linkedin.com/in/${chalk.white(linkedin)}
     `;
 
     return boxen(cardContent, {
@@ -18,3 +18,4 @@ export function generateCard({name,job,github,linkedin}) {
         align: "center",
     });
 }
+
