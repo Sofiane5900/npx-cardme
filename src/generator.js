@@ -1,5 +1,11 @@
 import boxen from "boxen";
 import chalk from "chalk";
+import path from "path";
+
+export function createPackageFolder({namePackage}) {
+    const commandName = `npx ${namePackage.toLowerCase()}`
+    const folderPath = path.resolve(process.cwd());
+}
 export function generateCard({name,job,github,linkedin,discord}) {
 
     name = name ? name : "Anonymous";
@@ -23,5 +29,9 @@ export function generateCard({name,job,github,linkedin,discord}) {
         borderColor: "cyan",
         align: "center",
     });
+
+    return cardContent;
 }
+
+export
 
