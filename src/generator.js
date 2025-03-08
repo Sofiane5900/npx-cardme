@@ -9,6 +9,7 @@ export function createPackageFolder({namePackage}) {
 }
 
 export function createCommandFile({answers})
+
 {
     const packagePath = createPackageFolder(answers.namePackage);
     const filePath = path.join(packagePath,"card.js");
@@ -17,7 +18,7 @@ export function createCommandFile({answers})
     import chalk from "chalk"
     import boxen from "boxen"
     
-      const card = \`
+      const card = \` 
     ${chalk.bold("${userData.name}")}
     ${chalk.green("${userData.job}")}
     
@@ -37,5 +38,7 @@ export function createCommandFile({answers})
 
     console.log(`package.json created at ${packagePath}`);
 }
+
+
 
 
