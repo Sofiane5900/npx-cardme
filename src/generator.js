@@ -1,20 +1,20 @@
-import boxen from "boxen";
 import chalk from "chalk";
 import path from "path";
+import fs from "fs";
 
 // retrieve the command name & current directory absolute path
-export function createPackageFolder({namePackage}) {
-    const packageName = `npx ${namePackage.toLowerCase()}`
-    const folderPath = path.resolve(process.cwd());
+export function createPackageFolder(namePackage) {
+  const packageName = `npx ${namePackage}`;
+  const folderPath = path.resolve(process.cwd());
+
+  return folderPath;
 }
 
-export function createCommandFile({answers})
+export function createCommandFile(answers) {
+  const packagePath = createPackageFolder(answers.namePackage);
+  const filePath = path.join(packagePath, "card.js");
 
-{
-    const packagePath = createPackageFolder(answers.namePackage);
-    const filePath = path.join(packagePath,"card.js");
-
-    const commandContent = `#!/usr/bin/env node
+  const commandContent = `#!/usr/bin/env node
     import chalk from "chalk"
     import boxen from "boxen"
     
@@ -30,15 +30,9 @@ export function createCommandFile({answers})
     console.log(boxen(card, { padding: 1, margin: 1, borderStyle: "round", borderColor: "cyan", align: "center" }));
     `;
 
+  // write the file "card.js" and give permissions
+  fs.writeFileSync(filePath, commandContent);
+  fs.chmodSync(filePath, "755");
 
-    // write the file "card.js" and give permissions
-    fs.writeFile(filePath,commandContent)
-    fs.chmod(filePath, "755");
-
-
-    console.log(`package.json created at ${packagePath}`);
+  console.log(`package.json created at ${packagePath}`);
 }
-
-
-
-
