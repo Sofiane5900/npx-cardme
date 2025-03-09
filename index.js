@@ -33,12 +33,9 @@ async function Menu() {
   console.log(chalk.yellow("You can then publish it with npm.\n"));
   // asking for user info
   const userInfo = await askUserInfo();
-  console.log("✅ User Inputs:", userInfo); // Debugging
   // generate folder & files
   createPackageFolder(userInfo);
-  createCommandFile(userInfo);
-
-  const card = generateCard(userInfo);
+  const card = createCommandFile(userInfo);
   console.log(card);
 }
 Menu();

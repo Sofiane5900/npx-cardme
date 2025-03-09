@@ -11,7 +11,7 @@ export function createPackageFolder(namePackage) {
 }
 
 export function createCommandFile(answers) {
-  const packagePath = createPackageFolder(answers.namePackage);
+  const packageCard = createPackageFolder(answers.namePackage);
   const filePath = path.join(packagePath, "card.js");
 
   const commandContent = `#!/usr/bin/env node
@@ -34,5 +34,5 @@ export function createCommandFile(answers) {
   fs.writeFileSync(filePath, commandContent);
   fs.chmodSync(filePath, "755");
 
-  console.log(`package.json created at ${packagePath}`);
+  console.log(`card.js created at ${packageCard}`);
 }
