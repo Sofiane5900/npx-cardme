@@ -4,10 +4,8 @@ import fs from "fs";
 import boxen from "boxen";
 // retrieve the command name & current directory absolute path
 export function createPackageFolder(namePackage) {
-  const packageName = `npx ${namePackage}`;
-  const folderPath = path.resolve(process.cwd());
-
-  return folderPath;
+  const currentFolderPath = path.resolve(process.cwd());
+  return currentFolderPath;
 }
 
 export function createCommandFile(answers) {
@@ -68,7 +66,7 @@ export function createCommandFile(answers) {
       boxen: "^7.0.0",
     },
     author: answers.name,
-    license: "MIT",
+    license: "ISC",
   };
 
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
