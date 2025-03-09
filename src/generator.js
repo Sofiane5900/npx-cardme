@@ -5,10 +5,20 @@ import boxen from "boxen";
 // retrieve the command name & current directory absolute path
 export function createPackageFolder(namePackage) {
   const currentFolderPath = path.resolve(process.cwd());
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath, { recursive: true });
+    console.log(`${chalk.yellow("📂 Created package folder: ${folderPath}")}`);
+  } else {
+    console.log(`${chalk.yellow("📂 Folder already exists: ${folderPath}")}`);
+  }
   return currentFolderPath;
 }
 
 export function createCommandFile(answers) {
+  const newFolderPath = fs.mkdirSync(
+    currentFolderPath,
+    `npx-${answers.namePackage}`,
+  );
   const packagePath = createPackageFolder(answers.namePackage);
   const cardPath = path.join(packagePath, "card.js");
   const packageJsonPath = path.join(packagePath, "card.json");
