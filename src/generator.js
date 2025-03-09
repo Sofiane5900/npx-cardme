@@ -4,23 +4,15 @@ import fs from "fs";
 import boxen from "boxen";
 // retrieve the command name & current directory absolute path
 export function createPackageFolder(answers) {
-  if (typeof answers.namePackage !== "string") {
-    throw new Error(
-      `❌ ERROR: namePackage is not a string! Received: ${JSON.stringify(answers.namePackage)}`,
-    );
-  }
-
   const folderPath = path.join(
     process.cwd(),
     `npx-${answers.namePackage.replace(/\s/g, "-")}`,
   );
+  // if folder dosen't exist, create one
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true });
     console.log("\n");
     console.log(`${chalk.yellow("📂 Created package folder: ${folderPath}")}`);
-  } else {
-    console.log("\n");
-    console.log(`${chalk.yellow("📂 Folder already exists: ${folderPath}")}`);
   }
   return folderPath;
 }
@@ -28,7 +20,7 @@ export function createPackageFolder(answers) {
 export function createCommandFile(answers) {
   const packagePath = createPackageFolder(answers);
   const cardPath = path.join(packagePath, "card.js");
-  const packageJsonPath = path.join(packagePath, "card.json");
+  const packageJsonPath = path.join(packagePath, "package.json");
 
   const card = boxen(
     `
