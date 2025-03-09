@@ -3,10 +3,16 @@ import path from "path";
 import fs from "fs";
 import boxen from "boxen";
 // retrieve the command name & current directory absolute path
-export function createPackageFolder(namePackage) {
+export function createPackageFolder(answers) {
+  if (typeof answers.namePackage !== "string") {
+    throw new Error(
+      `❌ ERROR: namePackage is not a string! Received: ${JSON.stringify(answers.namePackage)}`,
+    );
+  }
+
   const folderPath = path.join(
     process.cwd(),
-    `npx-${namePackage.replace(/\s/g, "-")}`,
+    `npx-${answers.namePackage.replace(/\s/g, "-")}`,
   );
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true });
@@ -20,7 +26,7 @@ export function createPackageFolder(namePackage) {
 }
 
 export function createCommandFile(answers) {
-  const packagePath = createPackageFolder(answers.namePackage);
+  const packagePath = createPackageFolder(answers);
   const cardPath = path.join(packagePath, "card.js");
   const packageJsonPath = path.join(packagePath, "card.json");
 
