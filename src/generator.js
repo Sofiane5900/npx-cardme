@@ -10,7 +10,7 @@ export function createPackageFolder(namePackage) {
 
 export function createCommandFile(answers) {
   const packagePath = createPackageFolder(answers.namePackage);
-  const filePath = path.join(packagePath, "card.js");
+  const cardPath = path.join(packagePath, "card.js");
   const packageJsonPath = path.join(packagePath, "card.json");
 
   const card = boxen(
@@ -48,8 +48,8 @@ export function createCommandFile(answers) {
      `;
 
   // write the file "card.js" and give permissions
-  fs.writeFileSync(filePath, commandContent);
-  fs.chmodSync(filePath, "755");
+  fs.writeFileSync(cardPath, commandContent);
+  fs.chmodSync(cardPath, "755");
 
   //package.json template
   const packageJson = {
