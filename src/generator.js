@@ -8,13 +8,15 @@ export function createPackageFolder(namePackage) {
     process.cwd(),
     `npx-${namePackage.replace(/\s/g, "-")}`,
   );
-  if (!fs.existsSync(currentFolderPath)) {
-    fs.mkdirSync(currentFolderPath, { recursive: true });
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath, { recursive: true });
+    console.log("\n");
     console.log(`${chalk.yellow("📂 Created package folder: ${folderPath}")}`);
   } else {
+    console.log("\n");
     console.log(`${chalk.yellow("📂 Folder already exists: ${folderPath}")}`);
   }
-  return currentFolderPath;
+  return folderPath;
 }
 
 export function createCommandFile(answers) {
@@ -45,12 +47,12 @@ export function createCommandFile(answers) {
     import boxen from "boxen"
     
       const card = \` 
-    ${chalk.bold("${userData.name}")}
-    ${chalk.green("${userData.job}")}
+    ${chalk.bold("${answers.name}")}
+    ${chalk.green("${answers.job}")}
     
-    ${chalk.blue("📂 GitHub:")} ${chalk.white("https://github.com/${userData.github}")}
-    ${chalk.blue("🔗 LinkedIn:")} ${chalk.white("https://linkedin.com/in/${userData.linkedin}")}
-    ${chalk.magentaBright("💬 Discord:")} ${chalk.white("${userData.discord}")}
+    ${chalk.blue("📂 GitHub:")} ${chalk.white("https://github.com/${answers.github}")}
+    ${chalk.blue("🔗 LinkedIn:")} ${chalk.white("https://linkedin.com/in/${answers.linkedin}")}
+    ${chalk.magentaBright("💬 Discord:")} ${chalk.white("${answers.discord}")}
     \`;
     
     console.log(boxen(card, { padding: 1, margin: 1, borderStyle: "round", borderColor: "cyan", align: "center" }));
