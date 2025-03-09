@@ -28,7 +28,7 @@ async function Menu() {
       "\n⚠ WARNING: A folder will be created in the current directory containing:",
     ),
   );
-  console.log(chalk.yellow("- npackage.json"));
+  console.log(chalk.yellow("- package.json"));
   console.log(chalk.yellow("- index.js"));
   console.log(chalk.yellow("You can then publish it with npm.\n"));
   // asking for user info
