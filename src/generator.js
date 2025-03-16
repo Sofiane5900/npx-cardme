@@ -12,7 +12,7 @@ export function createPackageFolder(answers) {
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true });
     console.log("\n");
-    console.log(`${chalk.yellow("📂 Created package folder: ${folderPath}")}`);
+    console.log(`${chalk.yellow(`📂 Created package folder: ${folderPath}`)}`);
   }
   return folderPath;
 }
@@ -21,6 +21,7 @@ export function createCommandFile(answers) {
   const packagePath = createPackageFolder(answers);
   const cardPath = path.join(packagePath, "card.js");
   const packageJsonPath = path.join(packagePath, "package.json");
+  const answersFilePath = path.join(packagePath, "answers.json");
 
   const card = boxen(
     `
@@ -41,8 +42,10 @@ export function createCommandFile(answers) {
   );
 
   const commandContent = `#!/usr/bin/env node
+    import fs from "fs";
     import chalk from "chalk"
     import boxen from "boxen"
+    const answers = JSON.parse(fs.readFileSync("./answers.json", "utf8"));
     
       const card = \` 
     ${chalk.bold("${answers.name}")}
@@ -78,6 +81,7 @@ export function createCommandFile(answers) {
     license: "ISC",
   };
 
+  fs.writeFileSync(answersFilePath, JSON.stringify(answers, null, 2));
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
   return card;
