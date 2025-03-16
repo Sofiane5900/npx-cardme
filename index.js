@@ -8,7 +8,7 @@ import chalk from "chalk";
 import cfonts from "cfonts";
 
 function Header() {
-  cfonts.say("npx me", {
+  cfonts.say("npx cardme", {
     font: "block",
     align: "center",
     colors: ["blue", "black"],
