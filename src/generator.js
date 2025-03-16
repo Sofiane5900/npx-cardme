@@ -44,6 +44,7 @@ export function createCommandFile(answers) {
   const commandContent = `#!/usr/bin/env node
     import chalk from "chalk"
     import boxen from "boxen"
+    const answers = JSON.parse(fs.readFileSync("./answers.json", "utf8"));
     
       const card = \` 
     ${chalk.bold("${answers.name}")}
@@ -79,7 +80,6 @@ export function createCommandFile(answers) {
     license: "ISC",
   };
 
-  fs.writeFileSync(answersFilePath, JSON.stringify(answers, null, 2));
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
   return card;
