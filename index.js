@@ -29,8 +29,8 @@ async function Menu() {
     ),
   );
   console.log(chalk.yellow("- package.json"));
-  console.log(chalk.yellow("- index.js"));
-  console.log(chalk.yellow("You can then publish it with npm.\n"));
+  console.log(chalk.yellow("- card.js"));
+  console.log(chalk.yellow("You can then publish it with npm by following the repo tutorial.\n"));
   // asking for user info
   const userInfo = await askUserInfo();
   // generate folder & files
