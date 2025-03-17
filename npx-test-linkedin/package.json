@@ -1,0 +1,16 @@
+{
+  "name": "test-linkedin",
+  "version": "1.0.0",
+  "description": "NPX business card for Sofiane Iguedjetal",
+  "main": "card.js",
+  "bin": {
+    "test-linkedin": "card.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "boxen": "^7.0.0"
+  },
+  "author": "Sofiane Iguedjetal",
+  "license": "ISC"
+}
