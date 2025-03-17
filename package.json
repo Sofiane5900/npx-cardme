@@ -1,13 +1,22 @@
 {
-  "name": "me",
+  "name": "cardme",
   "version": "1.0.0",
-  "description": "",
+  "description": "A CLI tool for developers to create and share personalized terminal business cards.",
   "main": "index.js",
+  "bin": {
+    "name": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "module",
+  "dependencies": {
+    "boxen": "^8.0.1",
+    "cfonts": "^3.3.0",
+    "chalk": "^5.4.1",
+    "inquirer": "^12.4.2"
+  }
 }
