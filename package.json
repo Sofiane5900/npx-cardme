@@ -1,5 +1,5 @@
 {
-  "name": "me",
+  "name": "cardme",
   "version": "1.0.0",
   "description": "A CLI tool for developers to create and share personalized terminal business cards.",
   "main": "index.js",
@@ -20,4 +20,3 @@
     "inquirer": "^12.4.2"
   }
 }
-
