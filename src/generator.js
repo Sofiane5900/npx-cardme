@@ -45,8 +45,15 @@ export function createCommandFile(answers) {
     import fs from "fs";
     import chalk from "chalk"
     import boxen from "boxen"
-    const answers = JSON.parse(fs.readFileSync("./answers.json", "utf8"));
-    
+
+    const answers = {
+    name: "${answers.name}",
+    job: "${answers.job}",
+    github: "${answers.github}",
+    linkedin: "${answers.linkedin}",
+    discord: "${answers.discord}"
+    };
+
       const card = \` 
     ${chalk.bold("${answers.name}")}
     ${chalk.green("${answers.job}")}
