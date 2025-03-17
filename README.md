@@ -25,7 +25,6 @@ Follow the prompts to enter your name, job title, GitHub, LinkedIn, and Discord 
 2️⃣ **Get your card files:**
 A new folder (`npx-your-card-name`) will be created with:
 - `card.js` (your terminal card script)
-- `answers.json` (your profile data)
 - `package.json` (npm package config)
 
 3️⃣ **Publish it on npm:**
@@ -42,7 +41,7 @@ npx your-card-name
 ```
 
 ## 🔄 Updating Your Card
-Need changes? Edit `answers.json` or `card.js`, change the version in `package.json`, and republish:
+Need changes? Edit `card.js`, change the version in `package.json`, and republish:
 ```sh
 npm version patch
 npm publish
